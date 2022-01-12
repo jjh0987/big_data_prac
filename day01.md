@@ -8,7 +8,7 @@
 
 ## 2. CLI
 
-- git 설치 후 ls,cd,mv,rm 과 각 옵션 숙지
+- git 설치 후 ls,cd,mv,touch,rm 과 각 옵션 숙지
 
 ## 3. typora
 
