@@ -33,4 +33,6 @@
 - 모두 출력 불가능시 (git log 시 대량인 경우), 마지막 줄 (end)로 표시 후 반응이 없는 이슈 : q 로 탈출
 - git remote add (attribute_name) (git hub URL) 
 - git remote remove (attribute_name)
-- git remote -v 로 확인
+- git remote -v 로 확인 
+- git push (reposit_name) (branch_name)
+- git push -u (reposit_name) (branch_name) 이후 git push 는 자동으로 해당 저장소에서 브랜치로 push 됨.
