@@ -1,0 +1,39 @@
+class CAccount:
+    global temp
+    customer = {'홍길동':[1234,0],'길동홍':[2345,1000]}
+    def deposit(self,x):
+        return x + temp
+    def withdraw(self,x):
+        return x - temp
+
+customer_name = input('이름을 쓰세요')
+info = CAccount().customer[customer_name]
+
+print(f'{customer_name} 통장')
+print('-'*20)
+print('1.잔액확인\n2.입금\n3.출금\n4.종료\n'+'-'*20)
+choice = int(input('메뉴를 선택해 주세요.'))
+customer_pass = int(input('계좌 비밀번호를 입력해 주세요'))
+
+if customer_pass == info[0]:
+    if choice == 1:
+        print(f'잔액은 {info[1]}원 입니다.')
+    elif choice == 2:
+        temp = int(input('입금할 금액을 알려주세요.'))
+        info[1] = CAccount().deposit(temp)
+        print(f'{temp}원 입금되었습니다. 잔액은 {info[1]}원 입니다.')
+    elif choice == 3:
+        temp = int(input('출금할 금액을 알려주세요'))
+        if temp < 0:
+            print('정확한 금액을 입력하세요.')
+        elif info[1] - temp < 0:
+            print('잔액부족, 거래가 거절 되었습니다.')
+        else:
+            info[1] = CAccount().withdraw(temp)
+            print(f'{temp}원 출금되었습니다. 잔액은 {info[1]}원 입니다.')
+    else:
+        print('계좌 거래가 종료되었습니다.')
+else:
+    print('비밀번호가 틀렸습니다.')
+
+# CAccount('홍길동',1234)
