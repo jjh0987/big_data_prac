@@ -14,7 +14,7 @@
 
 ## 3. typora
 
-- md 파일을 이용한 워드작성. 
+- md file editor 
 
 ## 4. git(UI 차원에서 vscode terminal 이용)
 
@@ -66,25 +66,83 @@
 ### 3. git reset : cancle commit - local
 
 - 커밋 로그의 지정된 시점으로 돌아간다.
+
 - git reset --soft (hash)
   - 생성된 파일이 있다면 해당커밋으로 돌아거서 add 상태로 진행.
-  - 수정된 파일이 있다면 해당파일 add 상태로 진행.
+  - 커밋시점으로만 돌아간다. 
+  - 파일내용은  기존 head 시점과 그대로.
+  - 커밋만 해주면 된다.
+
 - git reset --mixed (hash)
   - 생성된 파일이 있다면 해당커밋으로 돌아가서 untracked 상태로 진행.
   - 수정된 파일이 있다면 해당파일 untracked 상태로 진행.
+  - add 후 커밋해주어야 한다.
+
 - git reset --hard (hash)
   - 생성된 파일이 있다면 제거된 상태로 (초기상태로) 진행.
   - 변경내용이 있다면 제거된 상태로 진행.
 
+- git reflog
+
+  - 현재까지 이루어진 모든 로그를 열람한다.
+  - reset으로 인해 지워진 해시값도 열람할 수 있다.
+  - git reset <option> <hash> 로 해당시점으로 다시 복구 할 수 있다.
+
+- reset 후 push 주의점 
+
+  ```bash
+  git reset --hard <hash>
+  git push -f origin master
+  ```
+
+  - 혼자 사용하는 경우 <=> 팀원이 pull 하지 않은 경우 이용한다.
+  - repository 에서와 팀원의 local pc 에서 차이가 생긴다.
+  - 팀원이 이러한 사항을 모르고 푸시하는 경우 다시 repository에 추가 되게 된다.
+  - collaborator 가 있는 경우, 일관성을 위해 일괄적으로 push 후 일괄적으로 pull 해야한다.
+  - 단점 극복위한 git revert 이용. 사라진 내용을 팀원도 commit을 통해 알 수 있다.
+
 ### 4. git revert
 
-- skip
+- 원하는 commit 만 없앨 수 있다.
 
 ```bash
 git revert <commit_Id>
+git revert --no-commit HEAD~<number>
+git revert --no-commit master~<number>
+git revert <commit_Id>..<commit_Id>
 ```
 
-### 5. git branch 
+- 커밋 시점에 파일(수정사항) 이 있다면 working dir 에 파일이 사라진다. 
+- esc , :q 로 탈출
+- 'i' 누를 시 디폴트 revert 커밋 메시지를 수정할 수 있다. esc 후 :qw
+- 이전 커밋 버전은 모두 살아있고 head에 Revert 기록이 새로 커밋된다. (reset 과 다른점)
+- revert 로그를 revert 하면 다시 파일을 살릴 수 있다.
+
+```bash
+# revert test
+git log --oneline
+debebb0 (HEAD -> master) Revert "add a.txt"
+a5536f4 Revert "1"
+ffbd701 add a.txt
+8a3fea7 1
+```
+
+- git reset --hard <hash> 시 다시 파일이 복구 된다. 대신 revert 기록은 사라진다.
+- 범위 revert 시, 단점은 개별의 revert 된 커밋들이 모두 개별횟수마다 revert 커밋이 남는다.
+- git checkpoint 이용한 파일 복구법
+
+```bash
+# 특정 커밋으로 돌아가서 복사해올 수 있다.
+# 하지만 어떤파일이 얼마나 바뀌었는지는 알기 힘들다.
+git reflog # 모든 커밋해시 열람 
+git checkpoint <hash> # 해시로 진입
+# 가져올 파일 복사해서 복구 혹은 전체 가져오기
+git checkpoint master # 탈출
+```
+
+- collaborator 가 있는 경우, 일관성을 위해 일괄적으로 push 후 일괄적으로 pull 해야한다.
+
+### 5. git branch
 
 - 마스터 브랜치와 완전 분리된 독립적인 공간
 - 해당 브랜치의 헤드 (특정 커밋의 위치)를 이용가능
@@ -174,12 +232,17 @@ git merge hotfix
 
 ![img](../../Desktop/big_data/typora_md/image/git_study_log/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F072a8eb0-4fa6-4759-806e-6ae38069eb8e%2FUntitled.png)
 
+- accept current change, incoming change, both 클릭 시 바로 변환.
+
 ```bash
 git add . # 위 그림에서 수정할 부분을 선택하거나 새로작성 후 add 
 git commit -m 'merge branch hotfix' # merge complete.
 ```
 
-
+- git commit 만 할 경우, vim 창이 나온다 (blue text). 
+- 'i' 누를 시 -> -- 끼워넣기 -- 상태에서 orange text 수정가능
+- 'esc' 입력모드 탈출 
+- :wq (write and quit) or :q 탈출 하고 MERGING 상태 해제.
 
 ## 5. github
 
@@ -208,8 +271,8 @@ git commit -m 'merge branch hotfix' # merge complete.
 ### 2. git clone,pull
 
 - git pull origin master : 저장소의 변경내용을 로컬 pc에 반영한다. git clone (repo URL) 은 완전히 로컬 pc 에 복제해온다.
-
-- git clone (repo URL) : setting -> manager access 팀원 설정. 팀원은 저장소 수정,관리 권한 부여. (Public) 의 경우. private 저장소의 경우 git clone 시 불가능.
+- git clone (repo URL) (dir name) : setting -> manager access 팀원 설정. 팀원은 저장소 수정,관리 권한 부여. (Public) 의 경우. private 저장소의 경우 git clone 시 불가능.
+- 위 (dir name) 옵션에서는 clone directory 의 이름을 바로 설정 가능하다 (동일 url을 여러번 clone 하는 경우). 
 - 클론에서 add -> commit 진행하면 github에 변경사항 등록이 되고, 그후 origin 폴더에서 git pull 하면 clone 에서 변경사항이 로컬 pc에 반영된다.
 
 ### 3. git collaborator 설정
@@ -218,3 +281,54 @@ git commit -m 'merge branch hotfix' # merge complete.
 
 - collaborator 은 clone을 받아서 commit,push,pull 할 수 있다.
 
+### 4. 원격저장소의 사용
+
+#### case1 : repository의 소유권이 있는 경우 framework
+
+```bash
+git clone <url> # 저장소 복제
+git switch -c feature/login # feature/login 브랜치 생성 후 이동
+git push origin feature/login # 업무완료 후 push
+# 깃허브에서 pull request 작성
+# master 권한을 가진 관리자가 git merge feature/login 
+git switch master 
+git pull origin master # 로컬 pc를 최신화 시킨다.
+git branch -d feature/login # 완료된 브랜치 제거
+```
+
+#### case2 : repository의 소유권이 없는 경우 framework
+
+- github 에서 fork를 진행한다. -> 복제 원격 repository 가 생성된다.
+
+```bash
+git clone <url> # url 은 fork 된 복제 url
+git init
+git remote add origin <url> # 복제 url
+git remote add upstream <url> # 원본 url 은 upstream 이 관례적
+git switch -c feature/login 
+git push origin feature/login # 복제 url 에서 브랜치를 생성해서 기능 구현
+# 복제 url 을 깃허브에서 pull request
+# master 권한을 가진 관리자가 merge한 경우, 로컬 pc 최신화
+git pull upstream master # 원본 url 을 통해 로컬 pc 최신화 
+git branch -d feature/login # 로컬 pc 에서 브랜치 삭제
+```
+
+- 로컬 pc 에서 파일삭제를 원할 시 git init 을 없애기 위해서 CLI 환경에서 rm -rf .git 으로 init을 없애준다. 그 후 삭제 할 수 있다. 
+
+### 5. git branch push
+
+```bash
+git switch -c <branch>
+# 수정 후 커밋
+git commit -m 'branch_test'
+git push origin <branch>
+# 깃 허브에서 관리자에게 pr 메세지가 온다.
+# pr comment, 수정사항, reject 을 결정한다.
+# if admin merge <branch> to master branch in github, refreshing local pc.
+# delete easily <branch> from github
+git switch master
+git pull origin master
+git branch -d <branch>
+```
+
+- github 에서 커밋된 사항들은 github 에서 verified 마크를 받는다. (직접수정, merge from github)
