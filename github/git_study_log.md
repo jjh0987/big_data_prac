@@ -60,6 +60,7 @@
   - git log --oneline
   - git log -p
   - git log --graph --oneline
+  - git log --branches --not --remotes : 푸시 되지 않은 커밋
 - tip : git add . : 폴더내 모든 변경사항 add
 - 모두 출력 불가능시 (git log 시 대량인 경우), 마지막 줄 (end)로 표시 후 반응이 없는 이슈 : q 로 탈출
 
@@ -244,11 +245,36 @@ git commit -m 'merge branch hotfix' # merge complete.
 - 'esc' 입력모드 탈출 
 - :wq (write and quit) or :q 탈출 하고 MERGING 상태 해제.
 
+### 8. git show
+
+- `git show` : 현재 브랜치의 가장 최근 커밋 정보를 확인함
+- `git show <hash>` : 특정 커밋 정보를 확인함
+- `git show HEAD` : HEAD 포인터가 가리키는 커밋정보를 확인함
+
+- `git show <hash> 또는 HEAD^`:
+  - 마지막에 `^`표시가 있다.
+  - `^`표시 한 개면 한 개전 두 개면 두 개전, 갯수로 얼마나 이전 값인지 알수 있음
+  - git show HEAD~3
+
+### 9. git commit --amend
+
+- ```bash
+  git commit --amend
+  ```
+
+  - 가장 최근 커밋을 수정합니다.
+  - 파일을 추가적으로 수정 및 추가 하고 `git add` 명령어 이후 `git commit --amend` 명령어를 입력하면 커밋 메세지 또한 수정 됩니다.
+  - 이미 해당 커밋을 push 하였다면 에러가 발생합니다.
+  - `git push --force` 옵션으로 푸시가 가능합니다
+  - **하지만 이미 push한 커밋을 수정하여 강제로 push하는 것은 코드를 공유해 작업하는 동료들에게 오류를 일으킬 수 있으니 금하도록 합니다.**
+
 ## 5. github
 
 ### 1. git push process
 
 - git add . , git commit -m 'message'
+
+- git add 제거 : git rm --cached <file_name>
 
 - 깃허브 셋팅에서 저장소에서 브랜치 이름 설정
 

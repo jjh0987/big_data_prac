@@ -10,6 +10,7 @@ df.shape # tuple
 df.columns # object = **str type** or number
 df.dtypes # data type of columns
 df.info() # df.types + data counts
+df.describe() # 기초통계 inclue='all' 컬럼 타입 설정 NaN 은 제외한 정보만 출력된다. all 의 경우 모두 출력.
 df['column_name'] # value : int str ...
 df[['column_name']] # dataframe
 # 호출방식과 dtype
