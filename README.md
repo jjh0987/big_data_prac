@@ -1,4 +1,13 @@
-# Today I Learned
+## 2022-01-12 ~ 2022-01-14
 
-- 빅데이터 훈련과정과 알고리즘 업로드
+- Git / Github
 
+## 2022-01-16
+
+- Do it Pandas chapter 2,3
+
+## 2022-01-17
+
+- Do it Pandas chapter 4
+
+- Lecture / Exercise
