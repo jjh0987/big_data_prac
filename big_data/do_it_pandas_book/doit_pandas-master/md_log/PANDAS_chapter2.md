@@ -11,11 +11,15 @@ df.columns # object = **str type** or number
 df.dtypes # data type of columns
 df.info() # df.types + data counts
 df.describe() # 기초통계 inclue='all' 컬럼 타입 설정 NaN 은 제외한 정보만 출력된다. all 의 경우 모두 출력.
+df.컬럼명 # 할당 혹은 호출이 가능하다.
+# ex
+df.학교
+df.학교 = '학교' # 단일 데이터로 맵핑
 df['column_name'] # value : int str ...
 df[['column_name']] # dataframe
 # 호출방식과 dtype
 df[one column element] # indexed value 
-df['country'][0] # 호출가능
+df['country'][0] # 단인 데이터 호출가능
 df[list of col name] # DF
 df.loc[list,list of col name] # DF
 df.iloc[list,list of col index number] # DF

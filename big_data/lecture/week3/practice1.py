@@ -4,16 +4,6 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
-seoul0 = folium.Map(location=[37.55,126.98],zoom_start=10)
-seoul0.save(r'..\big_data\lecture\week3\seoul0.html')
-
-seoul1 = folium.Map(location=[37.55,126.98],tiles='Stamen Terrain',zoom_start=10)
-seoul1.save(r'..\big_data\lecture\week3\seoul1.html')
-
-folium.Map()
-df = pd.read_excel() # 학교 좌표 등
-folium.Marker()
-
 df = pd.read_csv(r'..\big_data\lecture\week3\data\seoul.csv','r',encoding='cp949')
 temp = []
 i = 0

@@ -1,0 +1,24 @@
+/* 주석내용 */
+/* 타입에 할당 */
+h1{
+    font-style: italic;
+    color: red;
+}
+
+/* id에 할당 */
+#bg{
+    background-color: yellow;
+}
+
+/* class에 할당 */
+.size{
+    font-size: 50px
+}
+.colors{
+    color: blue;
+}
+
+
+h4,h5{
+    color: navy;
+}
