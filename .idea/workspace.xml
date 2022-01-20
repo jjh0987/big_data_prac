@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eceff15-c6db-4f2f-963f-67f97e804187" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pycharmProjects/.idea/PycharmProjects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/.idea/PycharmProjects.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

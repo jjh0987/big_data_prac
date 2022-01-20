@@ -6,8 +6,11 @@
 
 - Do it Pandas chapter 2,3
 
-## 2022-01-17
+## 2022-01-16 : 2022-01-21
 
-- Do it Pandas chapter 4
-
+- Do it Pandas chapter 2,3,4
 - Lecture / Exercise
+- matplotlib practice
+- pandas practice
+- folium practice
+- Mac M1 first commit : operate tensorflow 2.4
