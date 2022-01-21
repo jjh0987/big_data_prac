@@ -8,5 +8,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PycharmProjects" />
     <orderEntry type="module" module-name="pycharm" />
+    <orderEntry type="module" module-name="movie" />
   </component>
 </module>
