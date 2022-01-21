@@ -5,44 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eceff15-c6db-4f2f-963f-67f97e804187" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/.idea/movie.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2017_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2017_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2017_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2017_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2017_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2018_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2018_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2018_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2018_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2018_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2019_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2019_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2019_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2019_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2019_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2020_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2020_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2020_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2020_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2020_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2021_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2021_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2021_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2021_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/movie/movie2021_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/practice_scraping0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/practice_scraping1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/practice_scraping2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/big_data/lecture/week3/practice_scraping3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/import info-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/import info-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import info.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/import info.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +37,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/big_data/lecture/week3" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.practice_scraping3">
     <configuration name="practice_scraping0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
