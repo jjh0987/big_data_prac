@@ -12,4 +12,3 @@
 - web-crawling,scraping practice with requests, bs4
 - html&css practice
 - Mac M1 first commit : operate tensorflow 2.4
-- config test
