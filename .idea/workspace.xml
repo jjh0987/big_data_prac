@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eceff15-c6db-4f2f-963f-67f97e804187" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/big_data/do_it_pandas_book/doit_pandas-master/chapter_exercise_note/Pandas_book_chap5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/big_data/lecture/week4/practice0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/import info-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/import info-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_data/do_it_pandas_book/doit_pandas-master/chapter_exercise_note/Pandas_book_chap4.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_data/do_it_pandas_book/doit_pandas-master/chapter_exercise_note/Pandas_book_chap4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/big_data/lecture/week3/mission.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_data/lecture/week3/mission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import info.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/import info.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/temp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pycharmProjects/pythonProject/cses/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/cses/temp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +28,15 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../pycharmProjects" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
