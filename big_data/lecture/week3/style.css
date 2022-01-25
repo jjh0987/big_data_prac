@@ -5,6 +5,34 @@ h1{
     color: red;
 }
 
+header{
+    color: green;
+}
+
+
+.place{
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+}
+
+/* font 속성 */
+.font{
+    font-size: 50px;
+    font-family: Arial,Times,sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+/* background 속성 */
+.background{
+    width: 500px;
+    height: 500px;
+    background-color:yellow;
+    background-image:url(dir);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
 /* id에 할당 */
 #bg{
     background-color: yellow;

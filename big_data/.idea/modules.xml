@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/main/.idea/Desktop.iml" filepath="$USER_HOME$/Desktop/main/.idea/Desktop.iml" />
       <module fileurl="file://$USER_HOME$/PycharmProjects/.idea/PycharmProjects.iml" filepath="$USER_HOME$/PycharmProjects/.idea/PycharmProjects.iml" />
       <module fileurl="file://$USER_HOME$/PycharmProjects/pythonProject/.idea/pythonProject.iml" filepath="$USER_HOME$/PycharmProjects/pythonProject/.idea/pythonProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/빅데이터 훈련.iml" filepath="$PROJECT_DIR$/.idea/빅데이터 훈련.iml" />
