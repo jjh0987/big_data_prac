@@ -6,7 +6,7 @@ import bs4
 
 # 가장 저렴한 항공권 찾기
 url = 'https://m-flight.naver.com/'
-driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/chromedriver")
+driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/MAC/chromedriver")
 driver.get(url)
 
 time.sleep(1)

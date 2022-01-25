@@ -18,7 +18,7 @@ fare_type = 'YC' # YC:일반 ,P:프리미엄 ,C:비지니스 ,F:일등석
 url = f"https://m-flight.naver.com/flights/{arr_loc_category}/" \
       f"{dep_loc}-{arr_loc}-{dep_date}/{arr_loc}-{dep_loc}-{arr_data}" \
       f"?adult={adult}&child={child}&infant={infant}&fareType={fare_type}"
-driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/chromedriver")
+driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/MAC/chromedriver")
 driver.get(url)
 
 time.sleep(10)

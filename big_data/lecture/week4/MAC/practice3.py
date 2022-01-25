@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 
 # 네이버 접속 후 로그인
 url = 'http://www.naver.com'
-driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/chromedriver")
+driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/MAC/chromedriver")
 
 try:
     driver.get(url)
@@ -28,7 +28,7 @@ from selenium.webdriver.common.keys import Keys
 import pyperclip
 # 클립보드 이용 (자동문자 방지 우회)
 url = 'http://www.naver.com'
-driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/chromedriver")
+driver = webdriver.Chrome("/Users/junho/Desktop/main/big_data/lecture/week4/MAC/chromedriver")
 
 try:
     driver.get(url)
