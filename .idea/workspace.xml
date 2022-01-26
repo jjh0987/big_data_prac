@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eceff15-c6db-4f2f-963f-67f97e804187" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/1065.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/2447.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/2004.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/big_data/lecture/week4/MAC/mac_lowprice.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_data/lecture/week4/MAC/mac_lowprice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_data/lecture/week4/MAC/practice4.py" beforeDir="false" afterPath="$PROJECT_DIR$/big_data/lecture/week4/MAC/practice4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/13119.MBM.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/13119.MBM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/1676.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/1676.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycharmProjects/pythonProject/algorithm lab/temp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
