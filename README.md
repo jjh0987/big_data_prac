@@ -13,8 +13,8 @@
 - html&css practice
 - Mac M1 first commit : operate tensorflow 2.4
 
-## 2022-01-24:
+## 2022-01-24 : 2022-01-28
 
 - requests, bs4 practice
 - selenium
-
+- MySQL setting, practice
