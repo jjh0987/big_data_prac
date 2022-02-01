@@ -18,3 +18,7 @@
 - requests, bs4 practice
 - selenium
 - MySQL setting, practice
+
+## 2022-02-01 : 2022-02-02
+
+- Do it Pandas chapter 5,6,7,8
