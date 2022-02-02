@@ -19,6 +19,7 @@
 - selenium
 - MySQL setting, practice
 
-## 2022-02-01 : 2022-02-02
+## 2022-01-31 : 2022-02-02
 
 - Do it Pandas chapter 5,6,7,8
+- e-learning
