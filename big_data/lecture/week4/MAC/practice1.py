@@ -45,16 +45,15 @@ sum(df.loc[:,'evaluation'])
 
 import requests
 import bs4
-import pandas
 
 max_page = 2
 page_toon = []
-page_star = []
 for page in range(1,max_page+1):
     url = f'https://comic.naver.com/webtoon/list?titleId=786537&page={page}'
     res = requests.get(url)
     html_str = res.text
     bs_obj = bs4.BeautifulSoup(html_str)
-    data = bs_obj.find_all('div',{'class':'rating_type'})
-    for star in data:
-        print(star.strong.text)
+    data = bs_obj.find_all('td',{'class':'title'})
+    for i in data:
+        page_toon.append(i.a.text)
+

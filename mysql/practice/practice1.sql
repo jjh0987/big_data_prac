@@ -41,6 +41,7 @@ age 		int
 # id가 누락되어도 오름차순 넘버링이 된다.
 insert into testTbl2 values (null,'aaa',20),(null,'bbb',21),(null,'ccc',22);
 select * from testTbl2;
+insert into testTbl2 (userName,age) values ('abc',24);
 alter table testTbl2 auto_increment = 100;
 insert into testTbl2 values (null,'ddd',23);
 select * from testTbl2;
