@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 #04-1
 anscombe = sns.load_dataset('anscombe')
 print(anscombe)
+anscombe[anscombe.x > 10]
 dataset_1 = anscombe[anscombe['dataset']=='I']
 plt.plot(dataset_1['x'],dataset_1['y'])
 plt.plot(dataset_1['x'],dataset_1['y'],'o')
