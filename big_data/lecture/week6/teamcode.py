@@ -2,7 +2,7 @@ import pymysql
 import requests
 import bs4
 import time
-import csv
+import pandas
 
 class craw:
     def __init__(self,target_url):
@@ -66,7 +66,7 @@ class enter_sql:
             data.append(temp)
         for i in data:
             print(i)
-'''
+
     def select_data(self,columns,table):
         column = ''
         for i in columns:
@@ -74,9 +74,9 @@ class enter_sql:
         column = column.strip(',')
         self.cur.execute(f'select {column} from {table}')
 
-    def fetch_data(self):
-        self.cur.fetchone()
-'''
+    def fetchall_data(self):
+        return self.cur.fetchall()
+
 day = 0
 while 1:
     if time.localtime()[3] == 17 and time.localtime()[4] == 0 and time.localtime()[5] == 0:
@@ -149,7 +149,7 @@ while 1:
         mysql_mine.exit_sql()
 
         #
-        mysql_mine = enter_sql('localhost','root','pw','db','utf8')
+        mysql_mine = enter_sql('localhost', 'root', 'jjh0987!', 'INVESTAR1', 'utf8')
 
         mysql_mine.query_execute(f'create table if not exists price_info('
                     f'{columns[1]} char(6),'
@@ -159,6 +159,17 @@ while 1:
         sql = """replace into price_info values (%s, %s);"""
         for i in range(len(primary_key)):
             mysql_mine.insert_execute(sql,(primary_key[i],price_info[i]))
+        mysql_mine.exit_sql()
+
+    week = 0
+    if day % 7 == 0:
+        week += 1
+        mysql_mine = enter_sql('localhost', 'root', 'jjh0987!', 'INVESTAR1', 'utf8')
+        target_columns = ['종목코드','today_price']
+        mysql_mine.select_data(target_columns, 'price_info')
+        DF = mysql_mine.fetchall_data()
+        Dataframe = pandas.DataFrame(data=DF,columns=target_columns)
+        Dataframe.to_csv(f'../main/big_data/lecture/week6/data/week{week}')
         mysql_mine.exit_sql()
 
     if time.localtime()[5] == 0:
@@ -171,30 +182,56 @@ mysql_mine = enter_sql('localhost','root','jjh0987!','INVESTAR1','utf8')
 mysql_mine.data_call(['회사명','대표자명'],'company')
 mysql_mine.exit_sql()
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.interpolate import interp1d
+anscombe = sns.load_dataset('anscombe')
+x = list(anscombe[anscombe.dataset == 'I'].x)
+y = list(anscombe[anscombe.dataset == 'I'].y)
+x_h = np.linspace(min(x),max(x),100)
+
+f = interp1d(x,y,kind='cubic') # function
+plt.plot(x,y,'o')
+plt.plot(x_h,f(x_h))
+
+f = interp1d(x,y,kind='quadratic') # function
+plt.plot(x_h,f(x_h))
+plt.legend(['anscobe','cubic','quadratic'])
 
 
+# function
+def find_quad(x,y,x0):
+    lag1 = ((x0-x[0])*(x0-x[1]))/((x[2]-x[0])*(x[2]-x[1]))*y[0]
+    lag2 = ((x0-x[1])*(x0-x[2]))/((x[0]-x[1])*(x[0]-x[2]))*y[1]
+    lag3 = ((x0-x[2])*(x0-x[0]))/((x[1]-x[2])*(x[1]-x[0]))*y[2]
+    return lag1 + lag2 + lag3
+
+x = list(anscombe[anscombe.dataset == 'I'].x)
+y = list(anscombe[anscombe.dataset == 'I'].y)
+temp = anscombe[anscombe.x > max(x)-3]
+xdata = list(temp[temp.dataset == 'I'].x)
+ydata = list(temp[temp.dataset == 'I'].y)
+x0 = max(x) + 1
+x.append(x0)
+y.append(find_quad(xdata,ydata,x0))
 
 
+sub_anscombe = anscombe[anscombe.dataset == 'I']
+sns.lmplot(x='x',y='y',data=sub_anscombe,fit_reg=True,col='dataset',order=2,truncate=False)
 
+plt.plot(x,y,'o')
+f = interp1d(x,y,kind='quadratic') # function
+x_h = np.linspace(min(x),max(x),100)
+plt.plot(x_h,f(x_h))
+f = interp1d(x,y,kind='cubic') # function
+plt.plot(x_h,f(x_h))
+plt.legend(['reg','anscombe','quadratic','cubic'])
+plt.grid()
+ydata
 
-'''
-week = 0
-    if day%7 == 0:
-        week += 1
-        mysql_mine = enter_sql('localhost', 'root', 'jjh0987!', 'INVESTAR1', 'utf8')
-
-        f = open(f'../main/big_data/lecture/team_code/data/week{week}','w',newline='')
-        write = csv.writer(f)
-        mysql_mine.select_data(['회사명', '대표자명'], 'company')
-        while 1:
-            row = mysql_mine.fetch_data()
-            if row == None:
-                break
-            temp = []
-            for i in range(2):
-                temp.append(row[i])
-            f.write(temp)
-        f.close()
-
-        mysql_mine.exit_sql()
-'''
+covid = [1202,1200,1364,1571,1360,925,1369,1284] # crolling
+data_set = [i for i in enumerate(covid)]
+covid_df = pd.DataFrame(data=data_set,columns=['t','covid'])
+sns.regplot(x='t',y='covid',data=covid_df,fit_reg=True,order=2,truncate=False,ci=None)

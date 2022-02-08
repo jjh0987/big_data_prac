@@ -18,3 +18,8 @@ select ename,hiredate,extract(year from hiredate),extract(month from hiredate),e
 select ename,hiredate,date(hiredate),year(hiredate),month(hiredate),day(hiredate) from emp;
 
 # select convert
+show databases;
+use mulcamDB;
+drop database mulcamDB;
+show tables;
+select * from userTable;

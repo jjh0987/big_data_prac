@@ -13,11 +13,26 @@ use crawStack;
 select * from ComicBook;
 
 # Investar DB 
+drop database INVESTAR;
 create database INVESTAR;
 use INVESTAR;
 show tables;
-select * from company_info where 종목코드 = '222670';
 select * from company_info;
+select * from company;
 select * from price_info;
+
+select count(*) from company;
+
+desc price_info;
+drop table company;
 drop table company_info;
 drop table price_info;
+
+# INVESTAR1 DB
+create database INVESTAR1;
+use INVESTAR1;
+show tables;
+select * from company;
+select * from price_info;
+drop table company;
+
