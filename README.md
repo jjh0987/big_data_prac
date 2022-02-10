@@ -24,3 +24,7 @@
 - Do it Pandas chapter 5,6,7,8
 - e-learning
 - stock market crawlling : python to db
+
+## 2022-02-07 : 2022-02-08
+
+- team project, presentation

@@ -2,7 +2,6 @@ import pymysql
 import requests
 import bs4
 import time
-import csv
 
 class craw:
     def __init__(self,target_url):
@@ -170,31 +169,3 @@ while 1:
 mysql_mine = enter_sql('localhost','root','jjh0987!','INVESTAR1','utf8')
 mysql_mine.data_call(['회사명','대표자명'],'company')
 mysql_mine.exit_sql()
-
-
-
-
-
-
-
-'''
-week = 0
-    if day%7 == 0:
-        week += 1
-        mysql_mine = enter_sql('localhost', 'root', 'jjh0987!', 'INVESTAR1', 'utf8')
-
-        f = open(f'../main/big_data/lecture/team_code/data/week{week}','w',newline='')
-        write = csv.writer(f)
-        mysql_mine.select_data(['회사명', '대표자명'], 'company')
-        while 1:
-            row = mysql_mine.fetch_data()
-            if row == None:
-                break
-            temp = []
-            for i in range(2):
-                temp.append(row[i])
-            f.write(temp)
-        f.close()
-
-        mysql_mine.exit_sql()
-'''
