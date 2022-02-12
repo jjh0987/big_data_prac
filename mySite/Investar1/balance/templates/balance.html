@@ -1,11 +1,11 @@
-{% load static %} <!-- -->
+{% load static %}
 <html>
     <head>
-        <title>Balance:{{ total }}</title>
-        <link rel="stylesheet" href={% static "balance/style.css" %}/>
+        <title>Balance: {{ total }}</title>  <!-- ① -->
+        <link rel="stylesheet" href="{% static 'b_style.css' %}"/>
     </head>
     <body>
-        <table>
+         <table>
             <tr>
                 <th>종목명</th>
                 <th>종목코드</th>
@@ -16,14 +16,14 @@
             </tr>
             {% for row in rows %}
             <tr>
-                {% for row in rows %}
-                <td>{{x}}</td>
+                {% for x in row %}
+                <td>{{ x }}</td>  <!-- ② -->
                 {% endfor %}
             </tr>
             {% endfor %}
             <tr>
-                <th colspan="3">계좌잔고</th>
-                <th colspan="3">{{ total }}</th>
+                <th colspan=3>계좌 잔고</th>
+                <th colspan=3>{{ total }}</th>  <!-- ③ -->
             </tr>
         </table>
     </body>

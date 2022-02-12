@@ -23,3 +23,18 @@ use mulcamDB;
 drop database mulcamDB;
 show tables;
 select * from userTable;
+
+
+use scott;
+select * from emp;
+select * from salgrade;
+select * from dept;
+
+select a.empno,a.deptno,b.loc 
+from emp a inner join dept b 
+where b.deptno = a.deptno;
+
+select a.empno,a.deptno,b.loc 
+from emp a, dept b 
+where b.deptno = a.deptno;
+

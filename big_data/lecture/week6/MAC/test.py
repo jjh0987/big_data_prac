@@ -12,6 +12,8 @@ import requests
 from datetime import datetime
 from threading import Timer
 
+df = pd.DataFrame()
+subdf = df.groupby()
 
 class DBUpdater:
     def __init__(self):

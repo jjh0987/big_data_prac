@@ -35,4 +35,8 @@ show tables;
 select * from company;
 select * from price_info;
 drop table company;
+drop table price_info;
+
+# investar10 db
+create database investar10;
 
