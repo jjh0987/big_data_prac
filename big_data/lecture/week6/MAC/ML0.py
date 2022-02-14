@@ -30,3 +30,33 @@ fish_ans_label = [1]*data_len_bream + [0]*data_len_smelt
 kn = KNeighborsClassifier()
 kn.fit(fish,fish_ans_label)
 kn.score(fish,fish_ans_label)
+kn.predict([[26,350],[8,10]]) # (2,1)
+
+kn_49 = KNeighborsClassifier(n_neighbors=49) # k-neighbor 참고데이터 49 default : 5
+kn_49.fit(fish,fish_ans_label)
+kn_49.score(fish,fish_ans_label) # 0.7142857142857143
+35/49
+
+import numpy as np
+input_arr = np.array(fish)
+input_arr.shape # list 형식은 shape 불가
+
+ans_arr = np.array(fish_ans_label)
+np.random.seed(42) # ?
+index = np.arange(49)
+np.random.shuffle(index)
+print(index)
+
+train_fish = input_arr[index[:35]]
+train_ans_arr = ans_arr[index[:35]]
+test_fish = input_arr[index[35:]]
+test_ans_arr = ans_arr[index[35:]]
+kn = KNeighborsClassifier()
+kn.fit(train_fish,train_ans_arr)
+kn.score(test_fish,test_ans_arr)
+
+kn.predict(test_fish)
+
+plt.scatter(train_fish[:,0],train_fish[:,1])
+plt.scatter(test_fish[:,0],test_fish[:,1])
+kn.score([[20,200]],[1]) # data form

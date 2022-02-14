@@ -38,3 +38,38 @@ select a.empno,a.deptno,b.loc
 from emp a, dept b 
 where b.deptno = a.deptno;
 
+select a.ename,a.sal,b.grade
+from emp a,salgrade b
+where a.sal between b.losal and b.hisal;
+
+
+select empno,deptno,loc 
+from emp a natural join dept b;
+
+select a.empno,a.deptno,b.loc 
+from emp a join dept b 
+where b.deptno = a.deptno;
+
+select a.empno,deptno,b.loc 
+from emp a join dept b using (deptno)
+where deptno > 10
+order by deptno;
+
+create table temp_dept select * from dept;
+select * from temp_dept;
+
+select a.empno,a.deptno,b.dname,c.loc as new
+from emp a join dept b on b.deptno = a.deptno
+join temp_dept c on c.deptno = b.deptno;
+
+select a.empno,a.deptno,b.dname,c.loc as new
+from emp a join dept b join temp_dept c 
+on c.deptno = b.deptno and b.deptno = a.deptno;
+
+select a.empno,a.deptno,b.dname,c.loc as new
+from emp a,dept b,temp_dept c
+where c.deptno = b.deptno and b.deptno = a.deptno;
+
+select * from dept;
+select emp.ename,dept.dname from emp a,dept b;
+
