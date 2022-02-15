@@ -20,7 +20,7 @@ len(iris_data)
 # test_size 20%
 x_train,x_test,y_train,y_test = train_test_split(iris_data,iris_target,test_size=0.2,random_state=11)
 x_test
-df_clf = DecisionTreeClassifier(random_state=11)
+df_clf = DecisionTreeClassifier(random_state=11) # 분류모델
 df_clf.fit(x_train,y_train)
 pred = df_clf.predict(x_test)
 accuracy_score(y_test,pred)

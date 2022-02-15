@@ -30,3 +30,22 @@ tips_miss.dtypes
 # 용량과 속도의 이점.
 # 컬럼의 값들이 몇가지 안되는 경우.
 tips
+
+# 09-3
+var = 'flesh wound'
+s = 'it is just a {}!'
+print(s.format(var))
+var = 'ha'
+s = '{0},{0}'
+print(s.format(var))
+s = '{max},{min}'
+print(s.format(max=1,min=0))
+s = '{:,}'
+print(s.format(3333))
+s = '{0:.4},{0:.4%}'
+print(s.format(7/10000))
+s = '{0:05d}'
+print(s.format(42))
+
+# var = 10
+# f 포맷팅 : f'{var}'
