@@ -73,3 +73,7 @@ where c.deptno = b.deptno and b.deptno = a.deptno;
 select * from dept;
 select emp.ename,dept.dname from emp a,dept b;
 
+select *,'all' as job from dept;
+
+
+
