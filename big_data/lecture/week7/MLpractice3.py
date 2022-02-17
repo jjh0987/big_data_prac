@@ -99,3 +99,51 @@ from sklearn.model_selection import cross_val_score
 score = cross_val_score(dt_clf,x_titanic_df,y_titanic_df,cv=5)
 score
 round(np.mean(score),4)
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.tree import export_graphviz
+from sklearn.metrics import accuracy_score
+import numpy as np
+import graphviz
+
+iris = load_iris()
+iris_data = iris.data # feature : 꽃받침 길이,꽃받침 너비,꽃입 길이,꽃입 너비
+iris_label = iris.target
+columns = iris.target_names
+x_train,x_test,y_train,y_test = train_test_split\
+    (iris_data,iris_label,test_size=0.3,random_state=3)
+dt_clf = DecisionTreeClassifier()
+dt_clf.get_params().keys()
+np.bincount(y_train)
+
+parms = {'max_depth':[2,3,5,10],'min_samples_split':[2,3,5],'min_samples_leaf':[1,5,8]} # 4*3*3
+grid_dclf = GridSearchCV(dt_clf,param_grid=parms,scoring='accuracy',cv=3)
+grid_dclf.fit(x_train,y_train)
+best_dclf = grid_dclf.best_estimator_
+best_parms = grid_dclf.best_params_
+pred = best_dclf.predict(x_test)
+
+
+best_acc = accuracy_score(pred,y_test)
+precision = precision_score(pred,y_test,average='weighted')
+recall = recall_score(pred,y_test,average='weighted')
+print(best_dclf)
+print(best_parms)
+print(best_acc)
+print(np.average(precision)) # 맞은 예측에서 True 비율
+print(np.average(recall)) # 참,참 / 참,참 + 참인데 거짓이라고 한 예측
+
+dt_clf = DecisionTreeClassifier(random_state=11)
+dt_clf.fit(x_train,y_train)
+export_graphviz(dt_clf,out_file='tree.dot',class_names=columns,
+                feature_names=iris.feature_names,impurity=True,filled=True)
+
+with open('tree.dot') as f:
+    dot_graph = f.read()
+graphviz.Source(dot_graph) # 주피터로 확인
+

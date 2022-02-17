@@ -1,12 +1,12 @@
-window import test
-2.7.0 (tensorflow)
+window import test, 
+2.7.0 (tensorflow), 
 Python 3.9.7_success
 
-macM1 import test
-2.4.0-rc0 (tensorflow)
+macM1 import test, 
+2.4.0-rc0 (tensorflow), 
 Python 3.8.6_success
 
-reference : import info.ipynb
+detail : import info.ipynb
 
 ## 2022-01-12 : 2022-01-14
 
@@ -40,8 +40,9 @@ reference : import info.ipynb
 - team project, presentation
 - django
 
-## 2022-02-14 :
+## 2022-02-14 : 2022-02-19
 
 - machine learning
 - Do it Pandas chapter 9,11
-- phantomjs practice 
+- phantomjs practice (still doing)
+- graphviz practice

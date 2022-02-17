@@ -1,4 +1,3 @@
-# import sklearn
 # print(sklearn.__version__)
 # 붓꽃 품종 예상
 # 알고리즘 : 의사결정트리 (descision tree)
@@ -17,9 +16,12 @@ iris_target = iris.target
 iris.target_names
 len(iris_data)
 
-# test_size 20%
+# test_size 20% # 랜덤 추출
 x_train,x_test,y_train,y_test = train_test_split(iris_data,iris_target,test_size=0.2,random_state=11)
-x_test
+y_train
+np.bincount(y_train) # 41 40 39
+np.bincount(y_test) # 9 10 11
+
 df_clf = DecisionTreeClassifier(random_state=11) # 분류모델
 df_clf.fit(x_train,y_train)
 pred = df_clf.predict(x_test)
@@ -48,9 +50,12 @@ for train_index, test_index in kfold.split(iris_data):
     test_size = x_test.shape[0]
     cv_acc.append(acc)
     print(n_iter,acc,train_size,test_size)
-    print(n_iter,test_index)
+    # print(n_iter,test_index)
 
 print(np.mean(cv_acc))
+print(pred)
+print(y_test)
+
 
 iris_df = pd.DataFrame(data=iris.data,columns=iris.feature_names)
 iris_df

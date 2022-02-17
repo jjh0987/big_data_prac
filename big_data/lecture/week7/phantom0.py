@@ -35,3 +35,4 @@ for i in data:
 
 driver.close()
 # check window
+import dryscrape
