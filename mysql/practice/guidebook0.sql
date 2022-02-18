@@ -75,5 +75,18 @@ select emp.ename,dept.dname from emp a,dept b;
 
 select *,'all' as job from dept;
 
+select job,ename,sal,rank() over (partition by job order by sal) from emp;
+select job,ename,sal,rank() over (order by sal desc),dense_rank() over (order by sal desc) from emp;
+select job,ename,sal,row_number() over () from emp;
+select mgr,sal,sum(sal) over (partition by mgr) from emp;
+select mgr,sal,sum(sal) over () from emp;
+select mgr,sum(sal) from emp group by mgr;
+
+select mgr,sal from (select mgr,sal,max(sal) over (partition by mgr order by sal desc) as m_sal from emp) A where sal = A.m_sal;
+
+select mgr,sal,sum(sal) over (partition by mgr) from emp;
+select mgr,ename,sal from (select mgr,ename,sal,rank() over (partition by mgr order by sal desc) as rk from emp) X where X.rk=1;
+# subquery 작성시 alias 부여해야 한다.
+select mgr,ename,sal,rank() over (partition by mgr order by sal desc) as rk from emp where rk = 1;
 
 
