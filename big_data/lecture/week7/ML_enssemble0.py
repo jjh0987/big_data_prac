@@ -86,12 +86,13 @@ print(acc)
 
 from sklearn.model_selection import GridSearchCV
 # parms = {'n_estimators':[],'max_depth':[],'min_samples_split':[],'min_samples_leaf':[]}
-parms = {'n_estimators':list(range(30,80,5)),
-         'max_depth':list(range(9,21,3)),
+parms = {'n_estimators':list(range(30,80,5)), # num of iter : using classifier
+         'max_depth':list(range(9,15,3)),
          'min_samples_split':[2],
+         # 'learning_rate': [0.1], # invalid ?
          'min_samples_leaf':list(range(2,8,2))}
 rf_clf = RandomForestClassifier(random_state=0,n_jobs=-1) # n_jobs ?
-grid_cv = GridSearchCV(rf_clf,param_grid=parms,cv=2,n_jobs=-1)
+grid_cv = GridSearchCV(rf_clf,param_grid=parms,cv=2,n_jobs=-1,)
 grid_cv.fit(X_train,y_train)
 print(grid_cv.best_params_)
 print(round(grid_cv.best_score_,4))
@@ -105,9 +106,20 @@ import time
 import warnings
 X_train,X_test,y_train,y_test = get_human_dataset()
 start_time = time.time()
+
 gb_clf = GradientBoostingClassifier(random_state=0)
 gb_clf.fit(X_train,y_train)
 pred = gb_clf.predict(X_test)
 acc = accuracy_score(pred,y_test)
 print(acc)
 print(time.time()-start_time)
+
+
+gb_clf = GradientBoostingClassifier(random_state=0)
+parms = {'n_estimators':[30],
+         'learning_rate':[0.05,0.1]}
+grid_cv =GridSearchCV(gb_clf,param_grid=parms,cv=2,verbose=1)
+grid_cv.fit(X_train,y_train)
+pred = grid_cv.best_estimator_.predict(X_test)
+acc = accuracy_score(pred,y_test)
+print(acc)

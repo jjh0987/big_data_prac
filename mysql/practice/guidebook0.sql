@@ -89,4 +89,6 @@ select mgr,ename,sal from (select mgr,ename,sal,rank() over (partition by mgr or
 # subquery 작성시 alias 부여해야 한다.
 select mgr,ename,sal,rank() over (partition by mgr order by sal desc) as rk from emp where rk = 1;
 
+select deptno,ename,sal,first_value(ename) over (partition by deptno order by ename desc) from emp;
+select deptno,ename,sal,last_value(ename) over (partition by deptno) from emp;
 

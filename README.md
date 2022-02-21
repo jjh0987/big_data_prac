@@ -46,3 +46,10 @@ detail : import info.ipynb
 - Do it Pandas chapter 9,11
 - phantomjs practice (still doing)
 - graphviz practice
+- voting,enssemble,randomForest,boosting c; 
+
+## 2022-02-21 :
+
+- ridge,lasso regression
+- ElasticNet
+- application0
