@@ -77,6 +77,57 @@ for i in range(len(years)):
 
 df_data_list
 
+from sklearn.model_selection import train_test_split
+
+train_test_bundle = []
+for i in range(len(df_list)):
+    X_train,X_test,y_train,y_test = train_test_split\
+            (df_data_list[i],H_score_list[i],test_size=0.3,random_state=156)
+    train_test_bundle.append([X_train,X_test,y_train,y_test])
 
 
-df_data
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import ElasticNet
+alphas = [0,0.1,1,10]
+rmse_bundle = []
+for alpha in alphas:
+    temp = []
+    for train in train_test_bundle:
+        EN = ElasticNet(alpha=alpha,l1_ratio=0.3)  # Min(RSS(W) + alpha* W:L2 square) # 다중선형에서 가중치 수정 # 회귀 계수 블러링
+        neg_mse_scores = cross_val_score(EN,train[0],train[2], scoring='neg_mean_squared_error', cv=5)
+        rmse = np.sqrt(-1 * neg_mse_scores)
+        avg_rmse = np.mean(rmse)
+        temp.append(avg_rmse)
+    rmse_bundle.append(temp)
+    # print(f'Mean of rmse when alpha is {alpha} : ',rmse_bundle)
+show_df = pd.DataFrame(data=rmse_bundle,columns=years,index=alphas)
+show_df.reindex(alphas)
+print('rmse------')
+print('alpha')
+print(show_df)
+
+
+coeff_bundle = []
+for train in train_test_bundle:
+
+    coeff_df = pd.DataFrame()
+
+    for alpha in alphas:
+        EN = ElasticNet(alpha=alpha,l1_ratio=0.3)
+        EN.fit(train[0],train[2])
+
+        coeff = pd.Series(data=EN.coef_,index=column)
+        colname = 'alpha:'+str(alpha)
+        coeff_df[colname] = coeff.sort_values(ascending=False)
+
+        coeff.sort_values(ascending=False,inplace=True)
+
+    coeff_bundle.append(coeff_df)
+
+print('parameter info')
+print('test_size=0.3')
+print('l1_ratio=0.3')
+for i in range(len(coeff_bundle)):
+    print()
+    print(years[i],'-----'*10)
+    print(coeff_bundle[i])

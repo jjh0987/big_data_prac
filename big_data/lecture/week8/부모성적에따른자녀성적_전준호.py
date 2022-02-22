@@ -48,9 +48,10 @@ from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import ElasticNet
 alphas = [0,0.1,1,10]
 l1_ratio = 0.3
+cv = 5
 for alpha in alphas:
     EN = ElasticNet(alpha=alpha,l1_ratio=l1_ratio)
-    neg_mse_scores = cross_val_score(EN,labeling_data,target, scoring='neg_mean_squared_error', cv=5)
+    neg_mse_scores = cross_val_score(EN,labeling_data,target, scoring='neg_mean_squared_error', cv=cv)
     rmse = np.sqrt(-1 * neg_mse_scores)
     avg_rmse = np.mean(rmse)
 
@@ -69,11 +70,14 @@ for alpha in alphas:
     coeff.sort_values(ascending=False,inplace=True)
 
 
+print('----corr of score')
+print(score_df.corr())
+print()
 print('----dummy info')
 # decoding
 for i in range(len(df.columns)):
     print(encode_list[i],' : ',[j for j in range(len(encode_list[i]))])
 print()
-print(f'l1 ratio : {l1_ratio}')
+print(f'l1 ratio : {l1_ratio}, cv : {cv}')
 print('----ElasticNet weight info')
 print(coeff_df)
