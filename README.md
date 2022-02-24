@@ -53,3 +53,5 @@ detail : import info.ipynb
 - ridge,lasso regression
 - ElasticNet
 - application0
+- application1
+- tensorflow,keras sequential model

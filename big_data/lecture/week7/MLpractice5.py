@@ -17,7 +17,7 @@ feature_dup_df = pd.DataFrame(data=old_feature_name_df.groupby('column_name').cu
                                   columns=['dup_cnt'])
 feature_dup_df
 
-feature_dup_df = feature_dup_df.reset_index()
+feature_dup_df = feature_dup_d  f.reset_index()
 feature_dup_df
 new_feature_name_df = pd.merge(old_feature_name_df.reset_index(),feature_dup_df,how='outer')
 new_feature_name_df
