@@ -92,10 +92,10 @@ model.add(Dense(15,activation='relu'))
 model.add(Dense(10,activation='sigmoid'))
 model.add(Dense(5,activation='sigmoid'))
 
-model.add(Dense(1,activation='sigmoid'))
+model.add(Dense(3,activation='softmax'))
 
 opt = tf.keras.optimizers.Adam(lr=0.01)
-model.compile(loss='categorical_crossentropy',optimizer=opt,metrics='accuracy')
+model.compile(loss='sparse_categorical_crossentropy',optimizer=opt,metrics='accuracy')
 model.fit(X,Y,epochs=100,batch_size=15)
 
 # model.evaluate(X,Y)

@@ -51,10 +51,10 @@ from sklearn.model_selection import GridSearchCV
 # parms = {'n_estimators':[],'max_depth':[],'min_samples_split':[],'min_samples_leaf':[]}
 parms = {'n_estimators':list(range(30,80,5)), # num of iter : using classifier
          'max_depth':list(range(9,15,3)),
-         'min_samples_split':[2],
+         'min_samples_split':list(range(1,10,2)),
          'min_samples_leaf':list(range(2,8,2))}
 rf_clf = RandomForestClassifier(random_state=0,n_jobs=-1) # n_jobs ?
-grid_cv = GridSearchCV(rf_clf,param_grid=parms,cv=2,n_jobs=-1,)
+grid_cv = GridSearchCV(rf_clf,param_grid=parms,cv=5,n_jobs=-1,)
 grid_cv.fit(X_train,y_train)
 print(grid_cv.best_params_)
 print(round(grid_cv.best_score_,4))
