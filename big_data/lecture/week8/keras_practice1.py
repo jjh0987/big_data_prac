@@ -81,13 +81,50 @@ decode_review = ' '.join([dict.get(i-3,'?') for i in movie_df.loc[0,'train_data'
 def vetorize_seq(seqs,dim=10000):
     results = np.zeros((len(seqs),dim))
     for i,seq in enumerate(seqs):
-        results[i,seq] = 1
+        results[i,seq] += 1
         print()
     return results
 x_train = vetorize_seq(train_data).astype('float32')
 x_test = vetorize_seq(test_data).astype('float32')
 
+from tensorflow.keras import models
+from tensorflow.keras import layers
+from tensorflow.keras import optimizers
+from tensorflow.keras import losses
+model = models.Sequential()
+model.add(layers.Dense(16,activation='relu'))
+model.add(layers.Dense(16,activation='relu'))
+model.add(layers.Dense(1,activation='sigmoid'))
 
+opt = optimizers.RMSprop(learning_rate=0.001)
+loss = losses.binary_crossentropy
+model.compile(optimizer=opt,loss=loss,metrics=['accuracy'])
+
+model.fit(x_train,train_label,epochs=30,batch_size=100)
+
+
+x_val = x_train.astype(float)
+partial_x_train = x_val[10000:].astype(float)
+y_val = train_label
+partial_y_train = y_val[10000:].astype(float)
+history = model.fit(partial_x_train,partial_y_train,
+                    epochs=20,batch_size=100,validation_data=(x_val,y_val))
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
+ephoc = range(1,len(acc)+1)
+
+import matplotlib.pyplot as plt
+plt.plot(ephoc,loss,'bo')
+plt.plot(ephoc,val_loss,'b')
+plt.plot(ephoc,acc,'bo')
+plt.plot(ephoc,val_acc,'b')
+
+
+pred = model.predict(x_test)
 
 
 '''

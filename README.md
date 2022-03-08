@@ -48,7 +48,7 @@ detail : import info.ipynb
 - graphviz practice
 - voting,enssemble,randomForest,boosting c; 
 
-## 2022-02-21 :
+## 2022-02-21 : 2022-02-26
 
 - ridge,lasso regression
 - ElasticNet

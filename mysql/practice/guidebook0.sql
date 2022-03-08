@@ -92,3 +92,8 @@ select mgr,ename,sal,rank() over (partition by mgr order by sal desc) as rk from
 select deptno,ename,sal,first_value(ename) over (partition by deptno order by ename desc) from emp;
 select deptno,ename,sal,last_value(ename) over (partition by deptno) from emp;
 
+
+
+
+
+

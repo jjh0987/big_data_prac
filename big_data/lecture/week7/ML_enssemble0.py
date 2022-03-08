@@ -14,7 +14,7 @@ data_df = pd.DataFrame(cancer.data,columns=cancer.feature_names)
 
 lr_clf = LogisticRegression()
 knn_clf = KNeighborsClassifier(n_neighbors=8)
-vo_clf = VotingClassifier(estimators=[('LR',lr_clf),('KNN',knn_clf)],voting='soft')
+vo_clf = VotingClassifier(estimators=[('LR',lr_clf),('KN',knn_clf)],voting='soft')
 
 X_train,X_test,y_train,y_test = train_test_split(
     cancer_data,cancer_label,test_size=0.2,random_state=156
