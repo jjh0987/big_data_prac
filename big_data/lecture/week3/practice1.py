@@ -4,7 +4,7 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_csv(r'..\big_data\lecture\week3\data\seoul.csv','r',encoding='cp949')
+df = pd.read_csv('/Users/junho/Desktop/main/big_data/lecture/week3/data/seoul.csv','r',encoding='cp949')
 temp = []
 i = 0
 while i < len(df):
