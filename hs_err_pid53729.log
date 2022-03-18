@@ -1,0 +1,55 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000000171a25248, pid=53729, tid=17667
+#
+# JRE version: OpenJDK Runtime Environment Zulu15.38+17-CA (15.0.6+5) (build 15.0.6+5-MTS)
+# Java VM: OpenJDK 64-Bit Server VM Zulu15.38+17-CA (15.0.6+5-MTS, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)
+# Problematic frame:
+# V  [libjvm.dylib+0x315248]  G1FullGCMarker::G1FullGCMarker(unsigned int, PreservedMarks*, G1CMBitMap*)+0x118
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azul.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: Macmini9,1 arm64 1 MHz, 8 cores, 16G, Darwin 21.3.0
+Time: Wed Mar 16 10:01:38 2022 KST elapsed time: 0.959686 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000016b12e5b0):  VMThread "VM Thread" [stack: 0x000000017135c000,0x000000017155f000] [id=17667]
+
+Stack: [0x000000017135c000,0x000000017155f000],  sp=0x000000017155e5e0,  free space=2057k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0x315248]  G1FullGCMarker::G1FullGCMarker(unsigned int, PreservedMarks*, G1CMBitMap*)+0x118
+V  [libjvm.dylib+0x30a678]  G1FullCollector::G1FullCollector(G1CollectedHeap*, bool, bool)+0x208
+V  [libjvm.dylib+0x2ec728]  G1CollectedHeap::do_full_collection(bool, bool)+0x7c
+V  [libjvm.dylib+0x34c234]  VM_G1CollectFull::doit()+0x80
+V  [libjvm.dylib+0x921f74]  VM_Operation::evaluate()+0xe4
+V  [libjvm.dylib+0x92af78]  VMThread::evaluate_operation(VM_Operation*)+0x158
+V  [libjvm.dylib+0x92a988]  VMThread::loop()+0x26c
+V  [libjvm.dylib+0x92a5e4]  VMThread::run()+0x88
+V  [libjvm.dylib+0x8c0d7c]  Thread::call_run()+0x88
+V  [libjvm.dylib+0x710d84]  thread_native_entry(Thread*)+0x1d0
+C  [libsystem_pthread.dylib+0x7240]  _pthread_start+0x94
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x000000016b150000
+
+Register to memory mapping:
+
+ x0=0x000000016b14fd40 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+ x1=0x0 is NULL
+ x2=0x000000016b14fb30 points into unknown readable memory: 0x000000017219ab48 | 48 ab 19 72 01 00 00 00
+ x3=0x00000001302ff410 points into unknown readable memory: 0x000000017218b110 | 10 b1 18 72 01 00 00 00
+ x4=0x0000000000000002 is an unknown value
+ x5=0x0 is NULL
+ x6=0x0000000002100000 is an unknown value
+ x7=0x0000000040000000 is an unknown value
+ x8=
