@@ -1,7 +1,5 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import requests
 import bs4
 
 # 가장 저렴한 항공권 찾기

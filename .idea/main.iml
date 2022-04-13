@@ -11,5 +11,9 @@
     <orderEntry type="module" module-name="movie" />
     <orderEntry type="module" module-name="lecture_note" />
     <orderEntry type="module" module-name="flower" />
+    <orderEntry type="module" module-name="server" />
+    <orderEntry type="module" module-name="선종서버" />
+    <orderEntry type="module" module-name="나연서버" />
+    <orderEntry type="module" module-name="streamlit_promise" />
   </component>
 </module>
