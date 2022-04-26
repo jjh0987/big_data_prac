@@ -16,7 +16,7 @@ driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div[1]/form/div[2]/div/div[1]/input').clear()
 driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div[1]/form/div[2]/div/div[1]/input').send_keys(
-    '07/01/2010')
+    '07/01/1992')
 driver.implicitly_wait(2)
 
 # submit
@@ -33,7 +33,7 @@ time_data = []
 root_path = 'https://www.federalreserve.gov'
 time.sleep(2)
 cnt = 0
-for i in range(7):
+for i in range(13):
     bs_obj = bs4.BeautifulSoup(driver.page_source)
     target = bs_obj.find('div', {'id': 'article'})
     atags = target.find_all('a')
@@ -65,7 +65,10 @@ for i in range(7):
                 pass
     print(f'page{i+1}')
     time.sleep(4)
-    driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[9]/a').click()
+    if i < 8:
+        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[11]/a').click()
+    else:
+        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[8]/a').click()
     time.sleep(1)
 
 len(writing_list)

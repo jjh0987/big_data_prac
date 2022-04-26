@@ -6,7 +6,7 @@ from selenium import webdriver
 import bs4
 
 driver = webdriver.Chrome('/Users/junho/Downloads/chromedriver')
-url = 'https://www.federalreserve.gov/newsevents/speeches.htm'
+url = 'https://www.federalreserve.gov/newsevents/testimony.htm'
 driver.get(url)
 driver.implicitly_wait(2)
 driver.set_window_size(2560, 1440)
@@ -16,7 +16,7 @@ driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div[1]/form/div[2]/div/div[1]/input').clear()
 driver.implicitly_wait(2)
 driver.find_element_by_xpath('//*[@id="content"]/div[2]/div/div[1]/form/div[2]/div/div[1]/input').send_keys(
-    '07/01/2010')
+    '04/20/1992')
 driver.implicitly_wait(2)
 
 # submit
@@ -25,7 +25,8 @@ driver.implicitly_wait(2)
 writing_list = []
 root_path = 'https://www.federalreserve.gov'
 time.sleep(2)
-for i in range(32):
+number_of_pages = 32
+for i in range(number_of_pages):
     bs_obj = bs4.BeautifulSoup(driver.page_source)
     target = bs_obj.find('div', {'id': 'article'})
     atags = target.find_all('a')
@@ -48,22 +49,10 @@ for i in range(32):
     time.sleep(2)
     if i < 8:
         driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[11]/a').click()
-    elif i >= 24:
-        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[10]/a').click()
     else:
-        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[12]/a').click()
+        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[8]/a').click()
     time.sleep(1)
 
 len(writing_list)
 import pandas as pd
 pd.DataFrame(data=writing_list).to_csv('/Users/junho/Downloads/speach.csv')
-# 끝에 10개 제거
-'''
-def get_data():
-    bs_obj = bs4.BeautifulSoup(driver.page_source)
-    data = bs_obj.find_all('p')
-    setting = ''
-    for i in data:
-        setting += i.text
-    return setting.replace('\n',' ')
-'''
