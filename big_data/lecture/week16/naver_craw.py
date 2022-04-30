@@ -4,56 +4,134 @@ import pandas as pd
 import requests
 from selenium import webdriver
 import bs4
-
+'''
 driver = webdriver.Chrome('/Users/junho/Downloads/chromedriver')
-url = 'https://search.naver.com/search.naver?where=news&query=%EC%95%A0%ED%94%8C&sm=tab_opt&sort=1&photo=3&field=0&pd=5&ds=&de=&docid=&related=0&mynews=1&office_type=1&office_section_code=3&news_office_checked=1014&nso=so%3Add%2Cp%3A1y&is_sug_officeid=0'
+url = 'https://search.naver.com/search.naver?where=news&query=%EC%B9%B4%EC%B9%B4%EC%98%A4%20%EC%A3%BC%EA%B0%80&sm=tab_opt&sort=1&photo=0&field=0&pd=5&ds=&de=&docid=&related=0&mynews=1&office_type=1&office_section_code=3&news_office_checked=1014&nso=so%3Add%2Cp%3A1y&is_sug_officeid=0'
 driver.get(url)
 
-
-bs_obj = bs4.BeautifulSoup(driver.page_source)
-target = bs_obj.find('div', {'class': 'group_news'})
-atags = target.find_all('a')
-atags
-root_path = 'https://www.federalreserve.gov'
-
 a_href = []
-for a in atags:
-    a_href.append(a['href'])
-
-a_href
-
-
-
-
-time.sleep(2)
-number_of_pages = 32
-for i in range(number_of_pages):
+while 1:
     bs_obj = bs4.BeautifulSoup(driver.page_source)
-    target = bs_obj.find('div', {'id': 'article'})
+    target = bs_obj.find('div', {'class': 'group_news'})
     atags = target.find_all('a')
+    cnt = 0
     for a in atags:
-        if 'item.title' in str(a):
-            url = ''
-            url = root_path + a['href']
-            res = requests.get(url)
-            bs_obj = bs4.BeautifulSoup(res.text)
-            data = bs_obj.find('div',{'class':'col-xs-12 col-sm-8 col-md-8'})
-            it = data.find_all('p') # []
-            all = ''
-            for dialogue in it:
-                #if 'fn1' in str(dialogue):
-                #    break
-                all += dialogue.text
-            writing_list.append(all.replace('\n',' ').replace('\t',' ').replace('\r',' '))
-            print(url)
-    print(f'page{i+1}')
-    time.sleep(2)
-    if i < 8:
-        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[11]/a').click()
-    else:
-        driver.find_element_by_xpath('//*[@id="article"]/ul[1]/li[8]/a').click()
-    time.sleep(1)
+        if 'news.naver.com' in str(a):
+            a_href.append(a['href'])
+            cnt += 1
+    driver.find_element_by_xpath('//*[@id="main_pack"]/div[2]/div/a[2]').click()
+    if cnt != 10:
+        break
 
-len(writing_list)
+pd.DataFrame(a_href).to_csv('/Users/junho/Desktop/data/final_csv/url.csv')
+#
+len(a_href)
+len(set(a_href))
+
+article = []
+for i in range(len(a_href)):
+    res = requests.get(a_href[i], headers={'User-Agent':'Mozilla/5.0'})
+    bs_obj = bs4.BeautifulSoup(res.text)
+    temp = bs_obj.find('div',{'id':'dic_area'}).text
+    article.append(temp.replace('\n',' ').replace('\t',' ').replace('\'','')
+                   .replace('\xa0',' ').replace('[파이낸셜뉴스]','').replace('/','')
+                   .replace('사진=','').strip())
+    print(f'process : {i+1}/{len(a_href)}')
+article
+'''
+
+
+
+
+# 채원 news_link 검색 : 파이낸셜뉴스,카카오 주가
+# 검색어,회사명 옵션
+
+import requests
+from selenium import webdriver
+from bs4 import BeautifulSoup
+
+driver = webdriver.Chrome('/Users/junho/Downloads/chromedriver')
+
+url = 'https://search.naver.com/search.naver?where=news&query=%EC%B9%B4%EC%B9%B4%EC%98%A4%20%EC%A3%BC%EA%B0%80&sm=tab_opt&sort=1&photo=0&field=0&pd=5&ds=&de=&docid=&related=0&mynews=1&office_type=1&office_section_code=3&news_office_checked=1014&nso=so%3Add%2Cp%3A1y&is_sug_officeid=0'
+driver.get(url)
+
+headers = {'User-Agent':'Mozilla/5.0'}
+res = requests.get(url, headers=headers)
+bs = BeautifulSoup(res.text, 'html.parser')
+
+news_link = []
+final = bs.find('a', {'class': 'btn_next'})['aria-disabled']
+
+while True:
+    if final == 'true':
+        news_body = bs.find('div', {'class': 'group_news'})
+        links = news_body.find_all('a', {'class': 'info'})
+        for link in links:
+            if link.text == '네이버뉴스':
+                news_link.append(link['href'])
+        break
+    news_body = bs.find('div', {'class': 'group_news'})
+    links = news_body.find_all('a', {'class': 'info'})
+    for link in links:
+        if link.text == '네이버뉴스':
+            news_link.append(link['href'])
+    next_url = 'https://search.naver.com/search.naver' + bs.find('a', {'class': 'btn_next'})['href']
+    driver.find_element_by_class_name('btn_next').click()
+
+    # 다음 페이지 url 탐색
+    res = requests.get(next_url, headers=headers)
+    bs = BeautifulSoup(res.text, 'html.parser')
+    final = bs.find('a', {'class': 'btn_next'})['aria-disabled']  # 이렇게 하면 바로 while문을 탈출하여 마지막 페이지는 크롤링이 안 되는 문제
+#########
+
+
 import pandas as pd
-pd.DataFrame(data=writing_list).to_csv('/Users/junho/Downloads/speach.csv')
+import bs4
+
+
+raw_article = []
+for i in range(len(news_link)):
+    res = requests.get(news_link[i], headers=headers)
+    bs_obj = bs4.BeautifulSoup(res.text)
+    temp = bs_obj.find('div',{'id':'dic_area'}).text
+    raw_article.append(temp.replace('\n', ' ').replace('\t', ' ')
+                   .replace('\xa0', ' ').replace('/', '')
+                   .replace('↑',' 상승').replace('↓', ' 하락').strip())
+    print(f'process : {i+1}/{len(news_link)}')
+pd.DataFrame(raw_article).to_csv('/Users/junho/Desktop/data/final_csv/raw_article.csv')
+
+raw_article
+#raw_article = pd.read_csv('/Users/junho/Desktop/data/final_csv/raw_article.csv')
+#list(raw_article['0'])
+raw_article = list(pd.read_csv('/Users/junho/Desktop/data/final_csv/raw_article.csv')['0'])
+raw_article
+
+
+import re
+processing_article = []
+
+for idx in raw_article:
+    text = re.sub('[a-z0-9]+@fnnews\.com.*', '', idx)
+    text = re.sub('\. *▶.*', '', text)
+    text = re.sub('사진=[가-힣]* *기자', '', text)
+    text = re.sub('사진=[가-힣a-zA-Z0-9]*', '', text)
+    text = re.sub('\([^\(\)]+\)|\[[^\[\]]+\]|<[^<>]+>','',text)
+    text = re.sub('[^ ㄱ-ㅎ가-힣a-zA-Z0-9%"\',\.\?!-~]','', text)
+    processing_article.append(text.strip())
+
+#raw_article
+pd.DataFrame(processing_article).to_csv('/Users/junho/Desktop/data/final_csv/processing_article.csv')
+
+
+import googletrans
+translator = googletrans.Translator()
+df = pd.DataFrame([translator.translate(i,src='ko',dest='en') for i in processing_article])
+print(translator.translate(processing_article[100],dest='en'))
+
+translated_article = []
+
+for i in range(0, 10):
+    en_text = translator.translate(processing_article[i], src = 'ko', dest = 'en').text
+    translated_article.append(en_text)
+
+print(translated_article)
