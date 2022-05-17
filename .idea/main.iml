@@ -14,7 +14,8 @@
     <orderEntry type="module" module-name="server" />
     <orderEntry type="module" module-name="선종서버" />
     <orderEntry type="module" module-name="나연서버" />
-    <orderEntry type="module" module-name="streamlit_promise" />
     <orderEntry type="module" module-name="streamlit_server" />
+    <orderEntry type="module" module-name="stream" />
+    <orderEntry type="module" module-name="streamlit_a" />
   </component>
 </module>

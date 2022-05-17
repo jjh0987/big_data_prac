@@ -2,7 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../server_git/streamlit_promise" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../streamlit_server" vcs="Git" />
   </component>
 </project>

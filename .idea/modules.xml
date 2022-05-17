@@ -9,7 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/big_data/lecture/week3/movie/.idea/movie.iml" filepath="$PROJECT_DIR$/big_data/lecture/week3/movie/.idea/movie.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pycharm/.idea/pycharm.iml" filepath="$PROJECT_DIR$/../pycharm/.idea/pycharm.iml" />
       <module fileurl="file://$PROJECT_DIR$/../server/.idea/server.iml" filepath="$PROJECT_DIR$/../server/.idea/server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../server_git/streamlit_promise/.idea/streamlit_promise.iml" filepath="$PROJECT_DIR$/../server_git/streamlit_promise/.idea/streamlit_promise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../stream/.idea/stream.iml" filepath="$PROJECT_DIR$/../stream/.idea/stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../streamlit_a/.idea/streamlit_a.iml" filepath="$PROJECT_DIR$/../streamlit_a/.idea/streamlit_a.iml" />
       <module fileurl="file://$PROJECT_DIR$/../streamlit_server/.idea/streamlit_server.iml" filepath="$PROJECT_DIR$/../streamlit_server/.idea/streamlit_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/../나연서버/.idea/나연서버.iml" filepath="$PROJECT_DIR$/../나연서버/.idea/나연서버.iml" />
       <module fileurl="file://$PROJECT_DIR$/../선종서버/.idea/선종서버.iml" filepath="$PROJECT_DIR$/../선종서버/.idea/선종서버.iml" />
