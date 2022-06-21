@@ -70,3 +70,26 @@ detail : import info.ipynb
 ## 2022-03-07 : 2022-03-13 [week10]
 
 - tokenize method : gensim, nltk, konlpy test
+- dacon project start
+
+## 2022-03-14 : 2022-03-20 [week11]
+
+- Fastext
+- lsa
+
+## 2022-03-21 : 2022-03-27 [week12]
+
+- sentiment analysis
+- lstm 
+- tokenize
+- project - dacon -
+
+## 2022-03-28 : 2022-04-03 [week13]
+
+- transformers 
+- project - dacon - 
+
+## week14 - .. 
+
+- semi-project
+- final-project
