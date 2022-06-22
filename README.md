@@ -1,12 +1,14 @@
 
-
-
-
 # [멀티캠퍼스] 서비스 산업 데이터를 활용한 빅데이터 분석
 
-2022-01-03 : 2022-06-10(890시간) 수료
+*2022-01-03 : 2022-06-10(890시간) 수료*
+*1차 프로젝트 : 대선 후보자 추천 웹서비스, dacon 정식대회 2위 입상*
+*-> 팀이름으로 우크라이나 후원*
+*2차 프로젝트 : 비정형데이터를 활용한 미국금리 예측시스템, 최우수팀*
+*3차 프로젝트 : 비정형데이터를 이용한 주식 시장분석 웹서비스, 최우수팀*
+*최우수훈련생*
 
-
+## 주요 호환 이슈
 
 window import test, 
 2.7.0 (tensorflow), 
@@ -16,7 +18,7 @@ macM1 import test,
 2.4.0-rc0 (tensorflow), 
 Python 3.8.6_success
 
-detail : import info.ipynb
+*detail : import info.ipynb*
 
 ## [week1]
 
@@ -73,7 +75,7 @@ detail : import info.ipynb
 ## 2022-02-28 : 2022-03-06 [week9]
 
 - cnn model 
-- fashion mnist, cifar10
+- fashion mnist, cifar10 dataset
 - cv2
 - object detection
 
