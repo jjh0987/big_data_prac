@@ -1,3 +1,13 @@
+
+
+
+
+# [멀티캠퍼스] 서비스 산업 데이터를 활용한 빅데이터 분석
+
+2022-01-03 : 2022-06-10(890시간) 수료
+
+
+
 window import test, 
 2.7.0 (tensorflow), 
 Python 3.9.7_success
@@ -93,3 +103,4 @@ detail : import info.ipynb
 
 - semi-project
 - final-project
+
