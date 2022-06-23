@@ -17,5 +17,6 @@
     <orderEntry type="module" module-name="streamlit_server" />
     <orderEntry type="module" module-name="stream" />
     <orderEntry type="module" module-name="streamlit_a" />
+    <orderEntry type="module" module-name="결과물" />
   </component>
 </module>

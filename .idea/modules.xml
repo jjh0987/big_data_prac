@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/../stream/.idea/stream.iml" filepath="$PROJECT_DIR$/../stream/.idea/stream.iml" />
       <module fileurl="file://$PROJECT_DIR$/../streamlit_a/.idea/streamlit_a.iml" filepath="$PROJECT_DIR$/../streamlit_a/.idea/streamlit_a.iml" />
       <module fileurl="file://$PROJECT_DIR$/../streamlit_server/.idea/streamlit_server.iml" filepath="$PROJECT_DIR$/../streamlit_server/.idea/streamlit_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../결과물/.idea/결과물.iml" filepath="$PROJECT_DIR$/../결과물/.idea/결과물.iml" />
       <module fileurl="file://$PROJECT_DIR$/../나연서버/.idea/나연서버.iml" filepath="$PROJECT_DIR$/../나연서버/.idea/나연서버.iml" />
       <module fileurl="file://$PROJECT_DIR$/../선종서버/.idea/선종서버.iml" filepath="$PROJECT_DIR$/../선종서버/.idea/선종서버.iml" />
     </modules>
