@@ -1,0 +1,10 @@
+streamlit==1.8.1
+xgboost==1.6.1
+numpy
+pandas
+matplotlib
+requests==2.26.0
+pymongo==4.1.1
+googletrans==4.0.0-rc.1
+transformers==4.17.0
+pykrx==1.0.33
