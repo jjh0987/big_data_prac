@@ -493,8 +493,8 @@ class Prediction():
         total_tbl_label = self.label.iloc[:, 0]
 
         X_train, X_test, y_train, y_test = train_test_split(total_tbl_train
-                                                            , total_tbl_label
-                                                            , test_size=test_size,
+                                                            ,total_tbl_label
+                                                            ,test_size=test_size,
                                                             random_state=10)
 
         #DecisionTree = DecisionTreeClassifier(random_state=10)
@@ -554,6 +554,7 @@ class Prediction():
 
     def xgB(self):
         return xgb.XGBClassifier(random_state=10)
+    
 class visualization():
 
     def __init__(self):
